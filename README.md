@@ -1,11 +1,13 @@
-# Título del trabajo
+# ALLIANCE
 
-Descripción breve del proyecto a realizar (2-3 frases).
-
+Alliance es un juego de estrategia para dos jugadores.
+Los jugadores vivirán en primera persona el desarrollo de una guerra a gran escala, y mediante sus decisiones serán los responsables del destino de su coalición tratando de llervarla al exito.
 ## Integrantes del equipo
 
-Nombres, apellidos, y usuario GitHub de los integrantes del equipo.
+Daniel Rodríguez Pastor @jesucristobuda
+Javier Rivas Seijas @Jav09
+Kevin Choto Once  @MrBotKa
 
 ## Objetivos del trabajo
 
-Lista de los objetivos que se persiguen con el trabajo propuesto.
+Queremos ofrecer una experiencia al jugador 
