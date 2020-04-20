@@ -50,7 +50,7 @@ int main (){
 			//PRIMERA ELECCION J2
 			
 		
-				printf("\n \n Turno del jugador 2 %s....\n Elige uno de los siguientes paises: \n",cadFinal2);
+				printf("\n \n Turno del segundo jugador  %s....\n Elige uno de los siguientes paises: \n",cadFinal2);
 				if (vj1[0]==1)
 			printf("2. China\n3. Rusia\n");
 			else if (vj1[0]==2)
@@ -129,11 +129,11 @@ int main (){
 				scanf ("%i",&vj1[2]);
 				switch (vj1[2])
 				{
-				case 1:printf ("%s:Has elegido añadir 300000 soldados a tu ejercito",cadFinal1);
+				case 1:printf ("%s:Has elegido aÃ±adir 300000 soldados a tu ejercito",cadFinal1);
 				break;
-				case 2:printf ("%s:Has añadido refuerzo maritimo a tu ejercito",cadFinal1);
+				case 2:printf ("%s:Has aÃ±adido refuerzo maritimo a tu ejercito",cadFinal1);
 				break;
-				case 3:printf ("%s:Has elegido añadir apoyo aereo",cadFinal1);
+				case 3:printf ("%s:Has elegido aÃ±adir apoyo aereo",cadFinal1);
 				break;
 				default:
 				 printf ("Opcion incorrecta\n");}
@@ -143,11 +143,11 @@ int main (){
 				scanf ("%d",&vj2[2]);
 				switch (vj2[2])
 				{
-				case 1:printf ("%s:Has elegido añadir 300000 soldados a tu ejercito",cadFinal2);
+				case 1:printf ("%s:Has elegido aÃ±adir 300000 soldados a tu ejercito",cadFinal2);
 				break;
-				case 2:printf ("%s:Has añadido refuerzo maritimo a tu ejercito",cadFinal2);
+				case 2:printf ("%s:Has aÃ±adido refuerzo maritimo a tu ejercito",cadFinal2);
 				break;
-				case 3:printf ("%s:Has elegido añadir apoyo aereo",cadFinal2);
+				case 3:printf ("%s:Has elegido aÃ±adir apoyo aereo",cadFinal2);
 				break;
 				default:
 				 printf ("Opcion incorrecta\n");
@@ -155,7 +155,7 @@ int main (){
 				
 				//3 MONEDAS
 
-				printf("\n \n Por tres monedas puedes comprar: \n 1. Drones de defensa.\n 2. Satélite de apoyo gps\n 3. Bunqueres");
+				printf("\n \n Por tres monedas puedes comprar: \n 1. Drones de defensa.\n 2. SatÃ©lite de apoyo gps\n 3. Bunqueres");
 				printf("\n Elige el segundo jugador : %s\n",cadFinal2);
 				scanf ("%i",&vj2[3]);
 				
@@ -186,12 +186,12 @@ int main (){
 				}
 				
 				//1 MONEDA
-				printf("\n Por dos monedas puedes comprar: \n 1. Enviar a niños y mujeres a la guerra.\n 2. Enviar espias a territorio enemigo\n 3. Personal sanitario en territorio enemigo ");
+				printf("\n Por dos monedas puedes comprar: \n 1. Enviar a niÃ±os y mujeres a la guerra.\n 2. Enviar espias a territorio enemigo\n 3. Personal sanitario en territorio enemigo ");
 				printf("Elige primer el jugador :\n",cadFinal1);
 				scanf ("%i",&vj1[4]);
 				switch (vj1[4])
 				{
-				case 1:printf ("%s:Has elegido enviar a niños y mujeres a la guerra.",cadFinal1);
+				case 1:printf ("%s:Has elegido enviar a niÃ±os y mujeres a la guerra.",cadFinal1);
 				break;
 				case 2:printf ("%s:Has elegido enviar espias a territorio enemigo",cadFinal1);
 				break;
@@ -204,7 +204,7 @@ int main (){
 				scanf ("%i",&vj2[4]);
 				switch (vj2[4])
 				{
-				case 1:printf ("%s:Has elegido enviar a niños y mujeres a la guerra.",cadFinal2);
+				case 1:printf ("%s:Has elegido enviar a niÃ±os y mujeres a la guerra.",cadFinal2);
 				break;
 				case 2:printf ("%s:Has elegido enviar espias a territorio enemigo",cadFinal2);
 				break;
@@ -215,9 +215,9 @@ int main (){
 				
 					//PRIMERA RONDA DEL JUEGO
 					
-					printf ("Comienza el juego.....\n\n Buenas tardes %s, nuestro comandante nos ha avisado esta mañana de que se ha visionado un mensaje en el cielo que dos avionetas han dejado tras su paso. El mensaje dice asi'Nossos espioes estao seguros'. No estamos muy seguros de lo que dice asi que hemos decidido pedir ayuda a nuestros aliados",cadFinal1);
+					printf ("Comienza el juego.....\n\n Buenas tardes %s, nuestro comandante nos ha avisado esta maÃ±ana de que se ha visionado un mensaje en el cielo que dos avionetas han dejado tras su paso. El mensaje dice asi'Nossos espioes estao seguros'. No estamos muy seguros de lo que dice asi que hemos decidido pedir ayuda a nuestros aliados",cadFinal1);
 						if (vj1[1]==1){
-						printf("\nNuestros aliados españoles no estan muy seguros de lo que pone, pero creen que pone que nuestros espias no esan a salvo");
+						printf("\nNuestros aliados espaÃ±oles no estan muy seguros de lo que pone, pero creen que pone que nuestros espias no esan a salvo");
 							if (vj1[2]==1){
 							printf ("\nEn consecuencia de esto mandaremos el regimiento de soldados del que disponemos");}
 								if (vj2[3]==1){
@@ -232,7 +232,7 @@ int main (){
 							
 							
 							if (vj1[1]==2) { 
-							printf("Nuestros aliados franceses no están muy seguros de lo que dice el mensaje");}
+							printf("Nuestros aliados franceses no estÃ¡n muy seguros de lo que dice el mensaje");}
 					
 					
 					
