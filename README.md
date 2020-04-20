@@ -10,4 +10,4 @@ Kevin Choto Once  @MrBotKa
 
 ## Objetivos del trabajo
 
-Queremos ofrecer una experiencia al jugador 
+Queremos desarrollar un juego que permita al jugador  disfrutar de una experiencia de juego personalizada a las decisiones que vaya tomando.Hemos desarrollado un arbol de decisiones en el que están contempladas cada una de las posibilidades que se ofrecen.El juego tendrá la capacidad de guardar los dotas durante la partida ya que en caso de esta cierre inesperadamente los datos quedarán almacenados en un fichero, y la partida podrá ser reanudada una vez abra de nuevo la aplicación. También se tendrá la posibilidad de elegir el idioma en el que se desea jugar.
