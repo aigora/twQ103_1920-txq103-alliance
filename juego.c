@@ -5,7 +5,7 @@ int main (){
 
 
 
-	//PRESENTACION DEL JUEGO
+	//PRESENTACION DEL JUEGO  test
 	printf("Bienvenido a nuestro juego. En los proximos minutos te enfrentaras a tu amigo en el escenario de una guerra mundial en la que seras responsable de llevar a tu coalicion al exito.\n");
 
 	char cadNombre1[50],cadNombre2[50],cadFinal1[50],cadFinal2[50];
