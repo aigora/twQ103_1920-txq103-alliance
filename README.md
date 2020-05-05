@@ -1,7 +1,6 @@
 # ALLIANCE
 
 ![Alliance Logo](/Logo.jpg)
-![Logo](url)
 
 Alliance es un juego de estrategia para dos jugadores.
 Los jugadores vivirán en primera persona el desarrollo de una guerra a gran escala, y mediante sus decisiones serán los responsables del destino de su coalición tratando de llervarla al exito.
