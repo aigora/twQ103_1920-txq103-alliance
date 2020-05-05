@@ -1,6 +1,6 @@
 # ALLIANCE
 
-![GitHub Logo](\Logo.jpg)
+![GitHub Logo](/Logo.jpg)
 Format: ![Alt Text](url)
 
 Alliance es un juego de estrategia para dos jugadores.
