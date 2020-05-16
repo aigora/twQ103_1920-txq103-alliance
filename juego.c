@@ -39,9 +39,6 @@ void printear_opciones(char *opciones_texto[], int opcion_elegida)
   }
 }
 
-/*
-  Implement this function
-*/
 int calcular_puntos(struct jugador jugador)
 {
   int puntos = 0;
@@ -66,10 +63,31 @@ int main()
 
   int input;
   int i = 0;
+  
+  char cadNombre1[50], cadNombre2[50], cadFinal1[50], cadFinal2[50]; 
+  
+  printf("Introduce tu nombre 1:\n");
+    gets(cadNombre1);
+
+    printf("Introduce tu nombre 2:\n");
+    gets(cadNombre2);
+
+    i=0;
+    while (cadNombre1[i]!='\0'){
+        cadFinal1[i]=cadNombre1[i];
+        i++;
+    }
+    cadFinal1[i]='\0';
+    i=0;
+    while (cadNombre2[i]!='\0'){
+        cadFinal2[i]=cadNombre2[i];
+        i++;
+    }
+    cadFinal2[i]='\0';
 
   struct jugador jugador1, jugador2;
-  strcpy(jugador1.nombre, "MrKrab");
-  strcpy(jugador2.nombre, "Javier");
+  strcpy(jugador1.nombre, cadFinal1);
+  strcpy(jugador2.nombre, cadFinal2);
 
   struct juego juego;
   juego.jugadores[0] = jugador1;
@@ -121,7 +139,7 @@ int main()
 
     juego.jugadores[juego.turno_de].decisiones[juego.turno_actual - 1] = input;
 
-    juego.turno_actual++;
+    juego.turno_actual++; 
   }
 
   return 0;
