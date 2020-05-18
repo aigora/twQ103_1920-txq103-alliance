@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TURNOS 3
+#define TURNOS 8
 
 struct jugador
 {
@@ -26,7 +26,7 @@ void get_input(int *input)
 
 void printear_jugador(struct juego juego)
 {
-  printf("(%s)\n", juego.turno_de ? juego.jugadores[0].nombre : juego.jugadores[1].nombre);
+  printf("(%s)\n", juego.turno_de ? juego.jugadores[1].nombre : juego.jugadores[0].nombre);
 }
 
 void printear_opciones(char *opciones_texto[], int opcion_elegida)
@@ -42,53 +42,82 @@ void printear_opciones(char *opciones_texto[], int opcion_elegida)
 int calcular_puntos(struct jugador jugador)
 {
   int puntos = 0;
+  int puntos_por_decision[TURNOS * 3] = {2,3,1,5,6,3,2,3,1,2,3,5,2,3,1,5,6,3,2,3,1,2,3,5};
 
-  // int *puntos_por_decision[][TURNOS] = {
-  //     {10, 8, 9}, {5, 3, 5}, {10, 9, 9}};
+  /*
+    1.  1 * 1     = 1
+    2.  1 * 2     = 2
+    3.  1 * 3     = 3
+    4.  2 * 1 + 2 = 4
+    5.  2 * 2 + 1 = 5
+    6.  2 * 3     = 6
+    7.  3 * 1 + 4 = 7 
+    8.  3 * 2 + 2 = 8
+    9.  3 * 3     = 9
+    10. 4 * 1 + 6 = 10
+    11. 4 * 2 + 3 = 11
+    12. 4 * 3     = 12
+    13. 5 * 1 + 8 = 13
+    14. 5 * 2 + 4 = 14
+    15. 5 * 3     = 15
+  */
+  int j = 0;
+  int i; 
+  for (i = 0; i < TURNOS; i++)
+  {
+    switch (jugador.decisiones[i])
+    {
+    case 1:
+      puntos += puntos_por_decision[((i + 1) * 1 + j) - 1];
+      break;
+    case 2:
+      puntos += puntos_por_decision[((i + 1) * 2 + j / 2) - 1];
+      break;
+    case 3:
+      puntos += puntos_por_decision[((i + 1) * 3) - 1];
+      break;
 
-  // for (int i = 0; i < 13; i++)
-  // {
-  //   puntos += puntos_por_decision[turno_actual - 1][jugador.decisiones[i] - 1];
-  // }
+    default:
+      break;
+    }
+    j += 2;
+  }
 
   return puntos;
 }
 
+void printear_bienvenida()
+{
+  printf("-------------------------------------"
+         "\n\tBienvenido a Alliance\n"
+         "-------------------------------------\n");
+  printf("Presione '1' para empezar partida.\n");
+}
+
+
 int main()
 {
-  FILE *enunciados;
-  char enunciado[300];
 
-  enunciados = fopen("enunciados.txt", "r");
+  FILE *prompts;
+  char prompt[300];
+
+  prompts = fopen("prompts.txt", "r");
+
 
   int input;
   int i = 0;
-  
-  char cadNombre1[50], cadNombre2[50], cadFinal1[50], cadFinal2[50]; 
+  char cadNombre1[50], cadNombre2[50]; 
   
   printf("Introduce tu nombre 1:\n");
     gets(cadNombre1);
-
+    
     printf("Introduce tu nombre 2:\n");
     gets(cadNombre2);
 
-    i=0;
-    while (cadNombre1[i]!='\0'){
-        cadFinal1[i]=cadNombre1[i];
-        i++;
-    }
-    cadFinal1[i]='\0';
-    i=0;
-    while (cadNombre2[i]!='\0'){
-        cadFinal2[i]=cadNombre2[i];
-        i++;
-    }
-    cadFinal2[i]='\0';
-
   struct jugador jugador1, jugador2;
-  strcpy(jugador1.nombre, cadFinal1);
-  strcpy(jugador2.nombre, cadFinal2);
-
+  strcpy(jugador1.nombre, cadNombre1);
+  strcpy(jugador2.nombre, cadNombre2);
+  
   struct juego juego;
   juego.jugadores[0] = jugador1;
   juego.jugadores[1] = jugador2;
@@ -98,49 +127,77 @@ int main()
   char *opciones[][TURNOS] = {
       {"EEUU", "Russia", "China"},
       {"Espana", "Brasil", "Francia"},
-      {"Regimiento de 300.000 soldados extra", "Flota de barcos (3 submarinos, 2 acorazados y 1 portaaviones)", "Apoyo aereo (15 cazas)"}};
+      {"Regimiento de 300.000 soldados extra", "Flota de barcos (3 submarinos, 2 acorazados y 1 portaaviones)", "Apoyo aereo (15 cazas)"},
+	  {"Niños y mujeres", "Espias", "Personal sanitario"},
+	  {"Retrasas a tus tropas y cedes terreno al enemigo", "Ofreces tu rendicion inmediata", "Te arriesgas y atacas con todas las fuerzas a tu disposicion"},
+	  {"Inviertes en equipamiento especializado para el frio para tu personal de guerra", "Aprovechas las condiciones climaticas y atacas", "Inviertes en infraestructura y mantienes a tu pueblo y recursos en buenas condiciones"},
+	  {"Reforzar el adoctrinamiento de tus tropas", "Tratar de acabar con su vida para evitar en lo posible traspaso de informacion", "Decides no hacer nada. Tampoco era tan importante"},
+	  {"Ofrecer descanso a los veteranos", "Organizas un nuevo reclutamiento", "No es momento para sentirse debil. Estan sirviendo a la patria"}};
 
+    int eleccion;
+  printear_bienvenida();
+  scanf("%d", &eleccion);
+
+  if (eleccion != 1)
+    return 0;
+  
   while (juego.turno_actual <= TURNOS)
   {
-
+  
     system("cls");
 
-
+    
     printf("[Turno %d]\n", juego.turno_actual);
 
-    fgets(enunciado, 300, enunciados);
-    printf("%s\n", enunciado);
+    
+    fgets(prompt, 300, prompts);
+    printf("%s\n", prompt);
 
-
+   
     printear_jugador(juego);
 
     printear_opciones(opciones[juego.turno_actual - 1], 0);
 
-
+  
     get_input(&input);
 
-   
+    
     juego.jugadores[juego.turno_de].decisiones[juego.turno_actual - 1] = input;
 
- 
+    
     juego.turno_de = !juego.turno_de;
 
-
+    
     system("cls");
 
-
+    
     printear_jugador(juego);
 
- 
+    
     printear_opciones(opciones[juego.turno_actual - 1], input);
 
-
+    
     get_input(&input);
 
+    
     juego.jugadores[juego.turno_de].decisiones[juego.turno_actual - 1] = input;
 
-    juego.turno_actual++; 
+    
+    juego.turno_actual++;
   }
-
+  
+   printf("%s: [ ", juego.jugadores[0].nombre);
+  int j; 
+  for (j = 0; j < TURNOS; j++)
+    printf("%d ", juego.jugadores[0].decisiones[j]);
+  printf("] pts: %d\n", calcular_puntos(juego.jugadores[0]));
+  printf("%s: [ ", juego.jugadores[1].nombre);
+  
+  int k; 
+  for (k = 0; k < TURNOS; k++)
+    printf("%d ", juego.jugadores[1].decisiones[k]);
+  printf("] pts: %d\n", calcular_puntos(juego.jugadores[1]));
+  
+  
   return 0;
 }
