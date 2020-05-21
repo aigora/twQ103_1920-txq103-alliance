@@ -42,7 +42,14 @@ void printear_opciones(char *opciones_texto[], int opcion_elegida)
 int calcular_puntos(struct jugador jugador)
 {
   int puntos = 0;
-  int puntos_por_decision[TURNOS * 3] = {2,3,1,5,6,3,2,3,1,2,3,5,2,3,1,5,6,3,2,3,1,2,3,5};
+  int puntos_por_decision[TURNOS * 3] = {2,3,1,
+  										5,6,3,
+										2,3,1,
+										2,3,5,
+										2,3,1,
+										5,6,3,
+										2,3,1,
+										2,3,5};
 
   /*
     1.  1 * 1     = 1
@@ -90,8 +97,10 @@ void printear_bienvenida()
 {
   printf("-------------------------------------"
          "\n\tBienvenido a Alliance\n"
-         "-------------------------------------\n");
+         "-------------------------------------\n"
+		 "Insertar descripcion juego\n\n");
   printf("Presione '1' para empezar partida.\n");
+  printf("Presione cualquier otro caracter para salir  del programa.\n");
 }
 
 
@@ -108,12 +117,20 @@ int main()
   int i = 0;
   char cadNombre1[50], cadNombre2[50]; 
   
+  int eleccion;
+  printear_bienvenida();
+  scanf("%d", &eleccion);
+  
+    
+  if (eleccion != 1)
+    return 0;	
+  
   printf("Introduce tu nombre 1:\n");
-    gets(cadNombre1);
+    scanf("%s", cadNombre1);
     
     printf("Introduce tu nombre 2:\n");
-    gets(cadNombre2);
-
+    scanf("%s", cadNombre2);
+    
   struct jugador jugador1, jugador2;
   strcpy(jugador1.nombre, cadNombre1);
   strcpy(jugador2.nombre, cadNombre2);
@@ -123,7 +140,7 @@ int main()
   juego.jugadores[1] = jugador2;
   juego.turno_actual = 1;
   juego.turno_de = 0;
-
+	
   char *opciones[][TURNOS] = {
       {"EEUU", "Russia", "China"},
       {"Espana", "Brasil", "Francia"},
@@ -134,12 +151,6 @@ int main()
 	  {"Reforzar el adoctrinamiento de tus tropas", "Tratar de acabar con su vida para evitar en lo posible traspaso de informacion", "Decides no hacer nada. Tampoco era tan importante"},
 	  {"Ofrecer descanso a los veteranos", "Organizas un nuevo reclutamiento", "No es momento para sentirse debil. Estan sirviendo a la patria"}};
 
-    int eleccion;
-  printear_bienvenida();
-  scanf("%d", &eleccion);
-
-  if (eleccion != 1)
-    return 0;
   
   while (juego.turno_actual <= TURNOS)
   {
@@ -155,12 +166,23 @@ int main()
 
    
     printear_jugador(juego);
-
+    
     printear_opciones(opciones[juego.turno_actual - 1], 0);
-
-  
-    get_input(&input);
-
+	get_input(&input);
+    
+    if ((input!=1) && (input!=2) && (input!=3)) {
+    	 do {
+    	 	char c;         
+			while ((c = getchar()) != '\n' && c != EOF) {        
+			};
+    	printf("Opcion no valida\n");
+		printear_opciones(opciones[juego.turno_actual - 1], 0);
+		get_input(&input);
+    	
+	} while ((input != 1) && (input != 2) && (input != 3)); 
+	
+	}
+   
     
     juego.jugadores[juego.turno_de].decisiones[juego.turno_actual - 1] = input;
 
@@ -172,13 +194,26 @@ int main()
 
     
     printear_jugador(juego);
-
     
-    printear_opciones(opciones[juego.turno_actual - 1], input);
-
+    int input2=input;
     
-    get_input(&input);
-
+    printear_opciones(opciones[juego.turno_actual - 1], input2);
+	get_input(&input);
+	
+	if((input2==input) || ((input != 1) && (input != 2) && (input != 3))) {
+		
+		do {
+			char c;         
+			while ((c = getchar()) != '\n' && c != EOF) {        
+			};
+    	printf("Opcion no valida\n");
+		printear_opciones(opciones[juego.turno_actual - 1], input2);
+		get_input(&input);
+    	
+		} while ((input2==input) || ((input != 1) && (input != 2) && (input != 3)));
+	
+		
+	}
     
     juego.jugadores[juego.turno_de].decisiones[juego.turno_actual - 1] = input;
 
@@ -198,6 +233,16 @@ int main()
     printf("%d ", juego.jugadores[1].decisiones[k]);
   printf("] pts: %d\n", calcular_puntos(juego.jugadores[1]));
   
+  juego.jugadores[0].puntos = calcular_puntos(juego.jugadores[0]);
+  juego.jugadores[1].puntos = calcular_puntos(juego.jugadores[1]);
+  
+  if (juego.jugadores[0].puntos>juego.jugadores[1].puntos) {
+  	printf("\n %s ha ganado", juego.jugadores[0].nombre);
+  } else if(juego.jugadores[1].puntos>juego.jugadores[0].puntos) {
+  	printf("\n %s ha ganado", juego.jugadores[1].nombre);
+  } else {
+  	printf("\n La guerra ha quedado en empate.");
+  }
   
   return 0;
 }
