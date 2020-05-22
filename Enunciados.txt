@@ -1,8 +1,8 @@
-Bienvenido a nuestro juego. En los proximos minutos te enfrentaras a tu amigo en el escenario de una guerra mundial en la que seras responsable de llevar a tu coalicion al exito.
+Bienvenido a nuestro juego. En los proximos minutos te enfrentaras a tu amigo en el escenario de una guerra mundial en    la que seras responsable de llevar a tu coalicion al exito.
 Muy bien...pero si queremos llevar la batalla a un nivel global necesitaremos mas aliados. Seguimos con el mecanismo de antes.
-Llego el momento de elegir el potencial militar que te permitirá vencer a tu enemigo.
+Llego el momento de elegir el potencial militar que te permitira vencer a tu enemigo.
 No todo en la guerra es fuerzas militares. Se necesita apoyo humano en el terreno. Elegid a quienes quieren enviar: 
 Os llega la noticia de que uno de vuestros mejores generales han sufrido un atentado. Tus soldados demandan una desicion inmediata de vuestra parte. ¿Que hareis?
 El invierno ha llegado al campo de batalla y tu personal militar esta sufriendo de las duras condiciones climaticas. Tendreis que elegir entre las siguientes opciones:
-Sufris la traicion de un vuestro mejor soldado que ha decidido cambiar de bando. ¿Como actuariais? 
-Tras meses de intensa guerra tus fuerzas se empiezan a debilitar. ¿De que forma revertirias esta situacion?
+Sufris la traicion de un vuestro mejor soldado que ha decidido cambiar de bando. Como actuariais? 
+Tras meses de intensa guerra tus fuerzas se empiezan a debilitar. De que forma revertirias esta situacion?
