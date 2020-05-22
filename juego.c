@@ -96,21 +96,30 @@ int calcular_puntos(struct jugador jugador)
 void printear_bienvenida()
 {
   printf("-------------------------------------"
-         "\n\tBienvenido a Alliance\n"
-         "-------------------------------------\n"
-		 "Insertar descripcion juego\n\n");
+         "\n\tBienvenido a Alliance\n");
+printf("-------------------------------------\n\n");
+        printf("	  ..../--------|======[]    \n");
+    	printf("	 ..../------------|        \n");
+    	printf("	 /----------------------| \n");
+   		 printf("	 (@) (@) (@) (@) (@) (@)/\n\n");
+   		 
+printf("Insertar descripcion juego\n\n");
+   		 
   printf("Presione '1' para empezar partida.\n");
   printf("Presione cualquier otro caracter para salir  del programa.\n");
+  
+  
+  
 }
 
 
 int main()
 {
 
-  FILE *prompts;
-  char prompt[300];
+   FILE *enunciados;
+  char enunciado[300];
 
-  prompts = fopen("Enunciados.txt", "r");
+  enunciados = fopen("enunciados.txt", "r");
 
 
   int input;
@@ -161,8 +170,8 @@ int main()
     printf("[Turno %d]\n", juego.turno_actual);
 
     
-    fgets(prompt, 300, prompts);
-    printf("%s\n", prompt);
+    fgets(enunciado, 300, enunciados);
+    printf("%s\n", enunciado);
 
    
     printear_jugador(juego);
