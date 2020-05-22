@@ -119,7 +119,7 @@ int main()
    FILE *enunciados;
   char enunciado[300];
 
-  enunciados = fopen("enunciados.txt", "r");
+  enunciados = fopen("Enunciados.txt", "r");
 
 
   int input;
