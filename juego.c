@@ -145,7 +145,7 @@ int main()
       {"EEUU", "Russia", "China"},
       {"Espana", "Brasil", "Francia"},
       {"Regimiento de 300.000 soldados extra", "Flota de barcos (3 submarinos, 2 acorazados y 1 portaaviones)", "Apoyo aereo (15 cazas)"},
-	  {"Niños y mujeres", "Espias", "Personal sanitario"},
+	  {"Ninos y mujeres", "Espias", "Personal sanitario"},
 	  {"Retrasas a tus tropas y cedes terreno al enemigo", "Ofreces tu rendicion inmediata", "Te arriesgas y atacas con todas las fuerzas a tu disposicion"},
 	  {"Inviertes en equipamiento especializado para el frio para tu personal de guerra", "Aprovechas las condiciones climaticas y atacas", "Inviertes en infraestructura y mantienes a tu pueblo y recursos en buenas condiciones"},
 	  {"Reforzar el adoctrinamiento de tus tropas", "Tratar de acabar con su vida para evitar en lo posible traspaso de informacion", "Decides no hacer nada. Tampoco era tan importante"},
