@@ -11,7 +11,7 @@ struct jugador //Estructura jugador formada a partir del nombre (cadena]), decis
   int puntos;
 };
 
-struct juego //Estructura juego (ayudar· al flujo del juego). Est· formada a partir de ronda_actual (entero) y  turno_de (entero)
+struct juego //Estructura juego (ayudar√° al flujo del juego). Est√° formada a partir de ronda_actual (entero) y  turno_de (entero)
 {
   struct jugador jugadores[2]; //El juego es para dos jugadores
   int ronda_actual;
@@ -81,7 +81,7 @@ int main()
     printf("[Ronda %d]\n", juego.ronda_actual); //Imprime la ronda actual
 
     
-    fgets(enunciado, 300, enunciados); // Guarda en la variable enunciado (Cadena de car·cteres) los enunciados del fichero en orden secuencial
+    fgets(enunciado, 300, enunciados); // Guarda en la variable enunciado (Cadena de car√°cteres) los enunciados del fichero en orden secuencial
     printf("%s\n", enunciado); // Imprime el enunciado corrrespondiente a la ronda actual. 
 
    
@@ -173,7 +173,7 @@ int main()
 
 //Funciones 
 
-void get_input(int *input)  //Esta funcion imprime --> para indicar que el sistema esta esperando una decisiÛn de parte del usuario
+void get_input(int *input)  //Esta funcion imprime --> para indicar que el sistema esta esperando una decisi√≥n de parte del usuario
 {
   printf("\n--> ");
   scanf("%d", input); //Escanea el valor (entero aportado por el usuario) 
@@ -186,7 +186,7 @@ void printear_jugador(struct juego juego) //Funcion con la estructura juego como
 																						    //del valor juego.turno_de
 
 void printear_opciones(char *opciones_texto[], int opcion_elegida) // Funcion con dos parametros: una cadena de caracteres (para el texto), y un entero
-{																	// y un entero que representar· la opcion elegida (1, 2 o 3) 
+{																	// y un entero que representar√° la opcion elegida (1, 2 o 3) 
   int i;
   for (i = 0; i < 3; i++)
   {
@@ -262,8 +262,8 @@ printf("-------------------------------------\n\n");
    		 
 printf("Una simulacion de guerra para dos jugadores basada en la toma de decisiones\n\n");
    		 
-  printf("Presione '1' para empezar partida.\n");
-  printf("Presione cualquier otro caracter para salir  del programa.\n");
+  printf("--> Presione '1' para empezar partida.\n");
+  printf("--> Presione cualquier otro caracter para salir  del programa.\n");
   
 }
 
