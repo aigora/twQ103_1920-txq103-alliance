@@ -1,6 +1,6 @@
 # ALLIANCE
 
-![Alliance Logo](/Logo.jpg)
+![Alliance Logo](/logo.png)
 
 ### Alliance es un juego que consiste en una simulación de guerra para dos jugadores .
 
