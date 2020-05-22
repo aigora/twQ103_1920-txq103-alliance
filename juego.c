@@ -11,7 +11,7 @@ struct jugador //Estructura jugador formada a partir del nombre (cadena]), decis
   int puntos;
 };
 
-struct juego //Estructura juego (ayudar· al flujo del juego). Est· formada a partir de ronda_actual (entero) y  turno_de (entero)
+struct juego //Estructura juego (ayudar√° al flujo del juego). Est√° formada a partir de ronda_actual (entero) y  turno_de (entero)
 {
   struct jugador jugadores[2]; //El juego es para dos jugadores
   int ronda_actual;
@@ -20,7 +20,7 @@ struct juego //Estructura juego (ayudar· al flujo del juego). Est· formada a par
 
 //Funciones 
 
-void get_input(int *input)  //Esta funcion imprime --> para indicar que el sistema esta esperando una decisiÛn de parte del usuario
+void get_input(int *input)  //Esta funcion imprime --> para indicar que el sistema esta esperando una decisi√≥n de parte del usuario
 {
   printf("\n--> ");
   scanf("%d", input); //Escanea el valor (entero aportado por el usuario) 
@@ -33,7 +33,7 @@ void printear_jugador(struct juego juego) //Funcion con la estructura juego como
 																						    //del valor juego.turno_de
 
 void printear_opciones(char *opciones_texto[], int opcion_elegida) // Funcion con dos parametros: una cadena de caracteres (para el texto), y un entero
-{																	// y un entero que representar· la opcion elegida (1, 2 o 3) 
+{																	// y un entero que representar√° la opcion elegida (1, 2 o 3) 
   int i;
   for (i = 0; i < 3; i++)
   {
@@ -45,14 +45,14 @@ void printear_opciones(char *opciones_texto[], int opcion_elegida) // Funcion co
 int calcular_puntos(struct jugador jugador) //Funcion con la estructura jugador como parametro
 {
   int puntos = 0;
-  int puntos_por_decision[RONDAS * 3] = {2,3,1, //Puntos de las desiciones disponibles en la ronda 1. (decision 1: 2 puntos, decision 2: 3 puntos, decision 3: 1 pto)
-  										5,6,3,  //Puntos de las desiciones disponibles en la ronda 2
-										2,3,1,  //Puntos de las desiciones disponibles en la ronda 3
-										2,3,5, // y asi sucesivamente
-										2,3,1, 
-										5,6,3,
+  int puntos_por_decision[RONDAS * 3] = {3,2,1, //Puntos de las desiciones disponibles en la ronda 1. (decision 1: 2 puntos, decision 2: 3 puntos, decision 3: 1 pto)
+  										3,2,1,  //Puntos de las desiciones disponibles en la ronda 2
+										1,2,3,  //Puntos de las desiciones disponibles en la ronda 3
+										1,3,2, // y asi sucesivamente
+										3,2,1, 
+										1,3,2,
 										2,3,1,
-										2,3,5};  //
+										3,1,2};  //
 
   /* Para acceder a cada posicion del vector para poder ser luego sumadas y dar una puntuacion final, se sigue el siguiente patron
     1.  1 * 1     = 1
@@ -173,7 +173,7 @@ int main()
     printf("[Ronda %d]\n", juego.ronda_actual); //Imprime la ronda actual
 
     
-    fgets(enunciado, 300, enunciados); // Guarda en la variable enunciado (Cadena de car·cteres) los enunciados del fichero en orden secuencial
+    fgets(enunciado, 300, enunciados); // Guarda en la variable enunciado (Cadena de car√°cteres) los enunciados del fichero en orden secuencial
     printf("%s\n", enunciado); // Imprime el enunciado corrrespondiente a la ronda actual. 
 
    
