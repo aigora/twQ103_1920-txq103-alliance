@@ -11,110 +11,18 @@ struct jugador //Estructura jugador formada a partir del nombre (cadena]), decis
   int puntos;
 };
 
-struct juego //Estructura juego (ayudar√° al flujo del juego). Est√° formada a partir de ronda_actual (entero) y  turno_de (entero)
+struct juego //Estructura juego (ayudar· al flujo del juego). Est· formada a partir de ronda_actual (entero) y  turno_de (entero)
 {
   struct jugador jugadores[2]; //El juego es para dos jugadores
   int ronda_actual;
   int turno_de;
 };
 
-//Funciones 
-
-void get_input(int *input)  //Esta funcion imprime --> para indicar que el sistema esta esperando una decisi√≥n de parte del usuario
-{
-  printf("\n--> ");
-  scanf("%d", input); //Escanea el valor (entero aportado por el usuario) 
-}
-
-void printear_jugador(struct juego juego) //Funcion con la estructura juego como parametro 
-{
-  printf("(%s)\n", juego.turno_de ? juego.jugadores[1].nombre : juego.jugadores[0].nombre); //Operador ternario 
-}																							//Imprime el nombre del jugador 1 o el jugador 2 dependiendo 
-																						    //del valor juego.turno_de
-
-void printear_opciones(char *opciones_texto[], int opcion_elegida) // Funcion con dos parametros: una cadena de caracteres (para el texto), y un entero
-{																	// y un entero que representar√° la opcion elegida (1, 2 o 3) 
-  int i;
-  for (i = 0; i < 3; i++)
-  {
-    if (opcion_elegida - 1 != i)
-      printf("%d. %s\n", i + 1, opciones_texto[i]); // Este if garantiza que cuando la opcion_elegida sea 1,2 o 3, se elimine esa opcion
-  }												 	// e imprime solo las otras dos opciones
-}
-
-int calcular_puntos(struct jugador jugador) //Funcion con la estructura jugador como parametro
-{
-  int puntos = 0;
-  int puntos_por_decision[RONDAS * 3] = {3,2,1, //Puntos de las desiciones disponibles en la ronda 1. (decision 1: 2 puntos, decision 2: 3 puntos, decision 3: 1 pto)
-  										3,2,1,  //Puntos de las desiciones disponibles en la ronda 2
-										1,2,3,  //Puntos de las desiciones disponibles en la ronda 3
-										1,3,2, // y asi sucesivamente
-										3,2,1, 
-										1,3,2,
-										2,3,1,
-										3,1,2};  //
-
-  /* Para acceder a cada posicion del vector para poder ser luego sumadas y dar una puntuacion final, se sigue el siguiente patron
-    1.  1 * 1     = 1
-    2.  1 * 2     = 2
-    3.  1 * 3     = 3
-    4.  2 * 1 + 2 = 4
-    5.  2 * 2 + 1 = 5
-    6.  2 * 3     = 6
-    7.  3 * 1 + 4 = 7 
-    8.  3 * 2 + 2 = 8
-    9.  3 * 3     = 9
-    10. 4 * 1 + 6 = 10
-    11. 4 * 2 + 3 = 11
-    12. 4 * 3     = 12
-    13. 5 * 1 + 8 = 13
-    14. 5 * 2 + 4 = 14
-    15. 5 * 3     = 15
-    .... y asi sucesivamente. En nuestro caso, tenemos 8 rondas y, por lo tanto, un vector con 24 elementos
-  */
-  int j = 0;
-  int i; 
-  for (i = 0; i < RONDAS; i++) //Bucle para ejecutar el algoritmo que representa el patron explicado anteriormente
-  {
-    switch (jugador.decisiones[i])
-    {
-    case 1: //Cuando la opcion del jugador es 1
-      puntos += puntos_por_decision[((i + 1) * 1 + j) - 1]; // Suma
-      break;
-    case 2: // Cuando la opcion del jugador es 2
-      puntos += puntos_por_decision[((i + 1) * 2 + j / 2) - 1];
-      break;
-    case 3: // Cuando la opciond del jugador es 3
-      puntos += puntos_por_decision[((i + 1) * 3) - 1]; 
-      break;
-
-    default:
-      break;
-    }
-    j += 2; // Suma 2 al valor j. 
-  }
-
-  return puntos;
-}
-
-void printear_bienvenida() //Funcion que no devuelve resultado que imprime la pantalla de presentacion y el menu inicial
-{
-  printf("-------------------------------------"
-         "\n\tBienvenido a Alliance\n");
-printf("-------------------------------------\n\n");
-        printf("	  ..../--------|======[]    \n");
-    	printf("	 ..../------------|        \n");
-    	printf("	 /----------------------| \n");
-   		 printf("	 (@) (@) (@) (@) (@) (@)/\n\n");
-   		 
-printf("Una simulacion de guerra para dos jugadores basada en la toma de decisiones\n\n");
-   		 
-  printf("Presione '1' para empezar partida.\n");
-  printf("Presione cualquier otro caracter para salir  del programa.\n");
-  
-  
-  
-}
+void get_input(int *input);
+void printear_jugador(struct juego juego);
+void printear_opciones(char *opciones_texto[], int opcion_elegida);
+int calcular_puntos(struct jugador jugador);
+void printear_bienvenida();
 
 int main()
 {
@@ -173,7 +81,7 @@ int main()
     printf("[Ronda %d]\n", juego.ronda_actual); //Imprime la ronda actual
 
     
-    fgets(enunciado, 300, enunciados); // Guarda en la variable enunciado (Cadena de car√°cteres) los enunciados del fichero en orden secuencial
+    fgets(enunciado, 300, enunciados); // Guarda en la variable enunciado (Cadena de car·cteres) los enunciados del fichero en orden secuencial
     printf("%s\n", enunciado); // Imprime el enunciado corrrespondiente a la ronda actual. 
 
    
@@ -262,3 +170,100 @@ int main()
   
   return 0;
 }
+
+//Funciones 
+
+void get_input(int *input)  //Esta funcion imprime --> para indicar que el sistema esta esperando una decisiÛn de parte del usuario
+{
+  printf("\n--> ");
+  scanf("%d", input); //Escanea el valor (entero aportado por el usuario) 
+}
+
+void printear_jugador(struct juego juego) //Funcion con la estructura juego como parametro 
+{
+  printf("(%s)\n", juego.turno_de ? juego.jugadores[1].nombre : juego.jugadores[0].nombre); //Operador ternario 
+}																							//Imprime el nombre del jugador 1 o el jugador 2 dependiendo 
+																						    //del valor juego.turno_de
+
+void printear_opciones(char *opciones_texto[], int opcion_elegida) // Funcion con dos parametros: una cadena de caracteres (para el texto), y un entero
+{																	// y un entero que representar· la opcion elegida (1, 2 o 3) 
+  int i;
+  for (i = 0; i < 3; i++)
+  {
+    if (opcion_elegida - 1 != i)
+      printf("%d. %s\n", i + 1, opciones_texto[i]); // Este if garantiza que cuando la opcion_elegida sea 1,2 o 3, se elimine esa opcion
+  }												 	// e imprime solo las otras dos opciones
+}
+
+int calcular_puntos(struct jugador jugador) //Funcion con la estructura jugador como parametro
+{
+  int puntos = 0;
+  int puntos_por_decision[RONDAS * 3] = {3,2,1, //Puntos de las desiciones disponibles en la ronda 1. (decision 1: 2 puntos, decision 2: 3 puntos, decision 3: 1 pto)
+  										3,2,1,  //Puntos de las desiciones disponibles en la ronda 2
+										1,2,3,  //Puntos de las desiciones disponibles en la ronda 3
+										1,3,2, // y asi sucesivamente
+										3,2,1, 
+										1,3,2,
+										2,3,1,
+										3,1,2};  //
+
+  /* Para acceder a cada posicion del vector para poder ser luego sumadas y dar una puntuacion final, se sigue el siguiente patron
+    1.  1 * 1     = 1
+    2.  1 * 2     = 2
+    3.  1 * 3     = 3
+    4.  2 * 1 + 2 = 4
+    5.  2 * 2 + 1 = 5
+    6.  2 * 3     = 6
+    7.  3 * 1 + 4 = 7 
+    8.  3 * 2 + 2 = 8
+    9.  3 * 3     = 9
+    10. 4 * 1 + 6 = 10
+    11. 4 * 2 + 3 = 11
+    12. 4 * 3     = 12
+    13. 5 * 1 + 8 = 13
+    14. 5 * 2 + 4 = 14
+    15. 5 * 3     = 15
+    .... y asi sucesivamente. En nuestro caso, tenemos 8 rondas y, por lo tanto, un vector con 24 elementos
+  */
+  int j = 0;
+  int i; 
+  for (i = 0; i < RONDAS; i++) //Bucle para ejecutar el algoritmo que representa el patron explicado anteriormente
+  {
+    switch (jugador.decisiones[i])
+    {
+    case 1: //Cuando la opcion del jugador es 1
+      puntos += puntos_por_decision[((i + 1) * 1 + j) - 1]; // Suma
+      break;
+    case 2: // Cuando la opcion del jugador es 2
+      puntos += puntos_por_decision[((i + 1) * 2 + j / 2) - 1];
+      break;
+    case 3: // Cuando la opciond del jugador es 3
+      puntos += puntos_por_decision[((i + 1) * 3) - 1]; 
+      break;
+
+    default:
+      break;
+    }
+    j += 2; // Suma 2 al valor j. 
+  }
+
+  return puntos;
+}
+
+void printear_bienvenida() //Funcion que no devuelve resultado que imprime la pantalla de presentacion y el menu inicial
+{
+  printf("-------------------------------------"
+         "\n\tBienvenido a Alliance\n");
+printf("-------------------------------------\n\n");
+        printf("	  ..../--------|======[]    \n");
+    	printf("	 ..../------------|        \n");
+    	printf("	 /----------------------| \n");
+   		 printf("	 (@) (@) (@) (@) (@) (@)/\n\n");
+   		 
+printf("Una simulacion de guerra para dos jugadores basada en la toma de decisiones\n\n");
+   		 
+  printf("Presione '1' para empezar partida.\n");
+  printf("Presione cualquier otro caracter para salir  del programa.\n");
+  
+}
+
