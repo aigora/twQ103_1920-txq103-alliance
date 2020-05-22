@@ -2,7 +2,7 @@
 
 ![Alliance Logo](/Logo.jpg)
 
-Alliance es un juego que consiste en una simulación de guerra para dos jugadores .
+### Alliance es un juego que consiste en una simulación de guerra para dos jugadores .
 
 Los jugadores vivirán en primera persona el desarrollo de una guerra a gran escala, y mediante sus decisiones serán los responsables del destino de su coalición tratando de llervarla al exito.
 
